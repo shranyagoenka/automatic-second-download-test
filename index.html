@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Automatic Second Download Test</title>
+</head>
+<body>
+
+    <h2>Automatic Second Download Test</h2>
+
+    <p>Click the button to download two test files.</p>
+
+    <button onclick="downloadFiles()">
+        Download Files
+    </button>
+
+    <script>
+        function downloadFiles() {
+
+            const files = [
+                "Report_1.txt",
+                "Report_2.txt"
+            ];
+
+            files.forEach((file, index) => {
+
+                setTimeout(() => {
+
+                    const link = document.createElement("a");
+                    link.href = file;
+                    link.download = file;
+
+                    document.body.appendChild(link);
+                    link.click();
+                    link.remove();
+
+                }, index * 1000);
+
+            });
+        }
+    </script>
+
+</body>
+</html>
